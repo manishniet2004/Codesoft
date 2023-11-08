@@ -1,0 +1,36 @@
+
+TASK 2
+
+Input: Take marks obtained (out of 100) in each subject.
+Calculate Total Marks: Sum up the marks obtained in all subjects.
+Calculate Average Percentage: Divide the total marks by the total number of subjects to get the
+average percentage.
+Grade Calculation: Assign grades based on the average percentage achieved.
+Display Results: Show the total marks, average percentage, and the corresponding grade to the user
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of subjects: ");
+        int numSubjects = input.nextInt();
+
+        int totalMarks = 0;
+
+        for (int i = 1; i <= numSubjects; i++) {
+            System.out.print("Marks in subject " + i + ": ");
+            totalMarks += input.nextInt();
+        }
+
+        double averagePercentage = (double) totalMarks / (numSubjects * 100) * 100;
+
+        char grade = (averagePercentage >= 90) ? 'A' : (averagePercentage >= 80) ? 'B' : (averagePercentage >= 70) ? 'C' : (averagePercentage >= 60) ? 'D' : 'F';
+
+        System.out.println("Total Marks: " + totalMarks);
+        System.out.println("Average Percentage: " + averagePercentage + "%");
+        System.out.println("Grade: " + grade);
+
+        input.close();
+    }
+}
